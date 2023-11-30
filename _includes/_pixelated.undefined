@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Image Manipulation | PixelPartner</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Image Manipulation" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Upload an image" />
+<meta property="og:description" content="Upload an image" />
+<link rel="canonical" href="http://localhost:4100/fte-frontend/2023/10/08/ImageManipulation.html" />
+<meta property="og:url" content="http://localhost:4100/fte-frontend/2023/10/08/ImageManipulation.html" />
+<meta property="og:site_name" content="PixelPartner" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-10-08T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Image Manipulation" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-10-08T00:00:00+00:00","datePublished":"2023-10-08T00:00:00+00:00","description":"Upload an image","headline":"Image Manipulation","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4100/fte-frontend/2023/10/08/ImageManipulation.html"},"url":"http://localhost:4100/fte-frontend/2023/10/08/ImageManipulation.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/fte-frontend/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4100/fte-frontend/feed.xml" title="PixelPartner" /><link rel="shortcut icon" type="image/x-icon" href="/fte-frontend/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/fte-frontend/">PixelPartner</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/fte-frontend/AD_compsci.html">Passion Project Time Box</a><a class="page-link" href="/fte-frontend/about/">About Our Team</a><a class="page-link" href="/fte-frontend/search/">Search</a><a class="page-link" href="/fte-frontend/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Image Manipulation</h1><p class="page-description">Upload an image</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2023-10-08T00:00:00+00:00" itemprop="datePublished">
+        Oct 8, 2023
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      1 min read
+    
+</span></p>
+
+    
+
+    </header>
+
+  <div class="post-content e-content" itemprop="articleBody"><head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+        /* Define styles for left and right halves */
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        @keyframes rgbLightEffect {
+            0% {
+               border-color: #000080;
+            }
+            50% {
+                border-color: #ADD8E6;
+            }
+            100% {
+                border-color: #000080;
+            }
+        }
+        .left-half, .right-half, .bottom-half{
+            width: 500px;
+            height: 300px;
+            padding: 10px;
+            box-sizing: border-box;
+            color: black;
+            border: 5.5px solid transparent;
+            animation: rgbLightEffect 7.7s linear infinite;
+        }
+        .left-half {
+            background-color: #333333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .right-half {
+            background-color: #444444;
+            text-align: center;
+        }
+        .bottom-half {
+            background-color: #222222;
+            text-align: center;
+            align-items: center;
+            width: 100%;
+        }
+        .p1 {
+            font-family: 'IBM Plex Sans Hebrew', monospace;
+            color: #CCCCCC;
+            /* src: url('fonts/fontface.css');  */
+        }
+        /*@font-face {
+        font-family: 'Roblox';
+        src: url('.././fonts/Roblox-Font.ttf');
+        } */
+        .container2 {
+            background-color: #444444;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: 'IBM Plex Sans Hebrew', monospace;
+            color: #CCCCCC;
+            border: 5.5px solid transparent;
+            animation: rgbLightEffect 7.7s linear infinite;
+            overflow: break-word;
+        }
+        .container3 {
+            background-color: #444444;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: 'IBM Plex Sans Hebrew', monospace;
+            border: 5.5px solid transparent;
+            border-color: red;
+        }
+        .dropbtn {
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            min-width: 160px;
+            overflow: auto;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        .dropdown-content option {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        .button {
+            border-radius: 10px;
+        }
+        {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            display: flex;
+            justify-content: center; 
+            align-items: center;
+            min-height: 100vh; 
+            background: #0e1537;
+            }
+        .box {
+            position: relative;
+            width: 880px;
+            height: 350px;
+            display: flex;
+            justify-content: center; 
+            align-items: center;
+            background: rgba(0,0,0,0.5);
+            overflow: hidden;
+            border-radius: 20px;
+        }
+        .box::before {
+            content: '';
+            position: absolute; 
+            width: 150px; 
+            height: 275%;
+            background: linear-gradient(#00ccff,#d400d4);
+            animation: animate 4s linear infinite;
+        }
+        .box::after {
+            content: ''; 
+            position: absolute; 
+            inset: 4px; 
+            background: #0e1538;
+            border-radius: 16px;
+        }
+        @keyframes animate {
+            0%{
+                transform: rotate(0deg);
+            }
+            100%{
+                transform: rotate(360deg);
+            }
+        }
+        .box h2 {
+            position: relative;
+            font-family: 'IBM Plex Sans Hebrew', monospace;
+            color: #fff;
+            font-size: 10em;
+            z-index: 10;
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+    <div class="box">
+            <h2><strong>WELCOME!!</strong></h2>
+        </div>
+        <br /><br /><br /><br />
+<!-- <img src="https://media.tenor.com/RRhijk6pHAoAAAAd/good-morning.gif" alt="Background GIF"> -->
+    <div class="container3">
+        <div>
+            <h1 class="p1"><strong>!! JPG file format is needed !!</strong></h1>
+        </div>
+        <br />
+    </div>
+    <div class="container">
+        <div class="left-half">
+            <h1 class="p1"><strong>Upload an Image</strong></h1>
+            <input type="file" id="imageInput" accept="image/*" />
+            <h3 class="p1">Pixelation Level: </h3>
+            <div class="dropdown">
+            <select id="pixelationLevel" class="dropbtn">
+                <div class="dropdown-content">
+                    <option value="2">2</option>
+                    <option value="4">4</option>
+                    <option value="8" selected="">8</option>
+                    <option value="16">16</option>
+                    <option value="32">32</option>
+                </div>
+            </select>
+            </div>
+        </div>
+        <div class="right-half">
+            &lt;&gt;
+            <h1 class="p1"><strong>Pixelator</strong></h1>
+            <button id="manipulateButton" class="button">-- -- P i x e l a t e ! -- --</button>
+        </div>
+    </div>
+    <div class="container">
+        <div class="bottom-half">
+            <h1 class="p1"><strong>Pixelated Image</strong></h1>
+            <img id="uploadedImage" src="" alt="Uploaded Image" style="max-width: 100%; display: none;" />
+            <br />
+            <button id="downloadButton" class="button">Download Pixelated Image</button>
+            <br />
+        </div>
+    </div>
+    <div class="container2">
+        <div>
+            <h1 class="p1"><strong>How does this work?</strong></h1>
+        </div>
+        <div>
+            <h4 class="p1">The above pixelate function works by downscaling the image and averaging out the RGB values over a certain box, depending on the size you specify (unfortunately not implemented yet). Then, it rescales the image up to create a pixelated image!</h4>
+        </div>
+    </div>
+
+
+<script>
+    uploadedImageName = "";
+    const resultContainer = document.getElementById("result");
+    // const url = "http://localhost:8017/api/pixel-partner-api";
+    const url = "https://fte.stu.nighthawkcodingsociety.com/api/pixel-partner-api";
+    const test_url = url + "/test";
+    const pixelate_url = url + "/pixelate/";
+    const options = {
+        method: 'GET', // *GET, POST, PUT, DELETE, etc.
+        mode: 'cors', // no-cors, *cors, same-origin
+        cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: 'omit', // include, *same-origin, omit
+        headers: {
+            'Content-Type': 'application/json',
+            // 'Content-Type': 'application/x-www-form-urlencoded',
+        },
+    };
+    const post_options = {
+        method: 'POST', // *GET, POST, PUT, DELETE, etc.
+        mode: 'cors', // no-cors, *cors, same-origin
+        cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: 'omit', // include, *same-origin, omit
+        headers: {
+            'Content-Type': 'application/json',
+            // 'Content-Type': 'application/x-www-form-urlencoded',
+        },
+    };
+    // fetch the API
+    fetch(test_url, options)
+    // response is a RESTful "promise" on any successful fetch
+    .then(response => {
+        // check for response errors
+        if (response.status !== 200) {
+            error('GET API response failure: ' + response.status);
+            return;
+        }
+        // valid response will have JSON data
+        response.json().then(data => {
+            console.log(data);
+        })
+    })
+    // catch fetch errors (ie Nginx ACCESS to server blocked)
+    .catch(err => {
+    error(err + " " + test_url);
+    });    
+    function handleImageUpload() {
+        const imageInput = document.getElementById('imageInput');
+        const uploadedImage = document.getElementById('uploadedImage');
+        const pixelationLevel = document.getElementById('pixelationLevel').value;
+        const leftHalf = document.getElementById('left-half'); //new code
+
+        const file = imageInput.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+
+            reader.onload = function (e) {
+                const base64Data = e.target.result.split(',')[1];
+                const fileName = file.name;
+                uploadedImageName = file.name;
+                const fileExtension = fileName.split('.').pop();
+                // fetch the API
+                // add option to change pixelate level
+                data = {"pixelate_level": pixelationLevel, "base64image": base64Data}
+                const image_options = {...post_options, method: 'POST', body: JSON.stringify(data)};
+                fetch(pixelate_url, image_options)
+                .then(response => {
+                    // check for response errors
+                    if (response.status !== 200) {
+                        error('GET API response failure: ' + response.status);
+                        return;
+                    }
+                    // valid response will have JSON data
+                    response.json().then(data => {
+                        console.log(data)
+                            const pixelatedImage = new Image();
+                            pixelatedImage.src = 'data:image/' + fileExtension + ';base64,' + data['base64image'];
+
+                            // Set a max-height for the image to fit within the text box
+                            pixelatedImage.style.maxHeight = '100%';
+
+                            uploadedImage.src = pixelatedImage.src;
+                            uploadedImage.style.display = 'block';
+
+                            pixelatedImage.onload = function() {
+                                const parent = document.querySelector('.bottom-half');
+                                const ratio = parent.clientWidth / pixelatedImage.width;
+
+                                if (ratio < 1) {
+                                    const maxHeight = ratio * pixelatedImage.height
+                                    parent.style.height = (maxHeight + 175) + 'px';
+                                } else {
+                                    parent.style.height = (pixelatedImage.height + 175) + 'px';
+                                }
+                        }
+                    })
+                })
+            };
+        }
+    };
+    function handleDownloadClick() {
+        const uploadedImage = document.getElementById('uploadedImage');
+        const pixelatedImage = new Image();
+        pixelatedImage.src = uploadedImage.src;
+
+        // Create an anchor element for downloading
+        const downloadLink = document.createElement('a');
+        downloadLink.href = pixelatedImage.src;
+        downloadLink.download = uploadedImageName.split('.')[0] + "_pixelated." + uploadedImageName.split('.')[1];
+        downloadLink.style.display = 'none';
+
+        // Append the anchor element to the document and trigger a click event
+        document.body.appendChild(downloadLink);
+        downloadLink.click();
+
+        // Remove the anchor element
+        document.body.removeChild(downloadLink);
+
+    }
+    const downloadButton = document.getElementById('downloadButton');
+    downloadButton.addEventListener('click', handleDownloadClick);
+    const manipulateButton = document.getElementById('manipulateButton');
+    manipulateButton.addEventListener('click', handleImageUpload);
+</script>
+
+</body>
+<p><br /><br /></p>
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="BearytheGreenBear/fte-frontend"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/fte-frontend/2023/10/08/ImageManipulation.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/fte-frontend/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="http://localhost:4100/fte-frontend/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/fte-frontend/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>August 2023 to June 2024</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li>
+  <a rel="me" href="https://github.com/nighthawkcoders" target="_blank" title="github">
+    <svg class="svg-icon grey">
+      <use xlink:href="/fte-frontend/assets/minima-social-icons.svg#github"></use>
+    </svg>
+  </a>
+</li>
+<li>
+  <a rel="me" href="https://github.com/trevorhuang1" target="_blank" title="github">
+    <svg class="svg-icon grey">
+      <use xlink:href="/fte-frontend/assets/minima-social-icons.svg#github"></use>
+    </svg>
+  </a>
+</li>
+<li>
+  <a rel="me" href="https://github.com/BearytheGreenBear" target="_blank" title="github">
+    <svg class="svg-icon grey">
+      <use xlink:href="/fte-frontend/assets/minima-social-icons.svg#github"></use>
+    </svg>
+  </a>
+</li>
+<li>
+  <a rel="me" href="https://github.com/iwu78" target="_blank" title="github">
+    <svg class="svg-icon grey">
+      <use xlink:href="/fte-frontend/assets/minima-social-icons.svg#github"></use>
+    </svg>
+  </a>
+</li>
+<li>
+  <a rel="me" href="https://github.com/jasonguan1012" target="_blank" title="github">
+    <svg class="svg-icon grey">
+      <use xlink:href="/fte-frontend/assets/minima-social-icons.svg#github"></use>
+    </svg>
+  </a>
+</li>
+</ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

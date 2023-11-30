@@ -4,7 +4,8 @@ owner_name: Ryan Liao
 github_username: rliao569
 github_repo: "Tri2Repo"
 baseurl: "/Tri2Repo"
-remote_theme: jekyll/minima
+#remote_theme: jekyll/minima
+remote_theme: thedevslot/WhatATheme
 minima:
   social_links:
     - { platform: github, user_url: "https://github.com/rliao569"}
