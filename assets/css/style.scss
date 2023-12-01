@@ -46,8 +46,8 @@ a.navbar-item.is-active {
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000", endColorstr="#000000", GradientType=1);
 
     &::before {
-        filter: blur(0.15rem);
-        background-image: url(images/theactualHomepageCover.jpg);
+        filter: blur(0.04rem);
+        background-image: url(https://i.ibb.co/48gDfLF/Homepage-Cover.jpg);
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
