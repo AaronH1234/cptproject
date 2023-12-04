@@ -18,7 +18,7 @@ categories: ['C4.1']
 <body>
 
 <!-- Button with a link -->
-<a href="https://replit.com/@rliao569/tictactoe#index.html" target="_blank">
+<a href="https://onecompiler.com/html/3zvenfggp" target="_blank">
     <button type="button">tic tac toe is so fun</button>
 </a>
 
