@@ -1,6 +1,6 @@
 ---
 title: 2.1 Binary
-layout: ;ightbulbs
+layout: post
 description: lightbulbs to demonstrate binary
 courses: { csp: {week: 5, categories: [3.B, 3.C]} }
 categories: [C4.4]
