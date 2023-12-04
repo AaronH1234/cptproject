@@ -2,10 +2,7 @@
 title: 2.1 Binary
 layout: default
 description: A Binary Math illustrative application using HTML, Liquid, and JavaScript.
-courses: { csp: {week: 13, categories: [3.B, 3.C]} }
-categories: [C4.4]
 type: ccc
-
 ---
 
 <!-- 
