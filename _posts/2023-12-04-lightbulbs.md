@@ -10,14 +10,6 @@ type: ccc
 
 <!-- 
 
-Learn how page works, plus learu about binary
-Hack 0: Do your own on/off thing with Image and Buttons thing
-Hack 1: change diplay to indicate value of bin (128, 64, 32, 16, 8, 4, 2, 1)
-Hack 2: change one-zero input under bulb to perform updates to page
-
-Learn about binary representations
-Hack 3: add a ASCII character display to text when 8 bits, determine if printable or not printable
-Hack 4: change to 24 bits and add a color code and display color when 24 bits. Think about display on this one, perhaps wrap bits 
 
 Jekyll Table Reference: https://idratherbewriting.com/documentation-theme-jekyll/mydoc_tables.html
 
@@ -67,7 +59,7 @@ Liquid for loop includes last number, thus the Minus
             Build many bits
             {% endcomment %}
             {% for i in (0..bits) %}
-            <th><img id="bulb{{ i }}" src="{{site.baseurl}}/images/bulb_off.png" alt="" width="40" height="Auto">
+            <th><img id="bulb{{ i }}" src="https://rliao569.github.io/Tri2Repo/images/bulb_off.png" alt="" width="40" height="Auto">
                 <div class="button" id="butt{{ i }}" onclick="javascript:toggleBit({{ i }})">Turn on</div>
             </th>
             {% endfor %}
@@ -89,9 +81,9 @@ Liquid for loop includes last number, thus the Minus
     const BITS = {{ BITS }};
     const MAX = 2 ** BITS - 1;
     const MSG_ON = "Turn on";
-    const IMAGE_ON = "{{site.baseurl}}/images/bulb_on.gif";
+    const IMAGE_ON = "https://rliao569.github.io/Tri2Repo/images/bulb_on.gif";
     const MSG_OFF = "Turn off";
-    const IMAGE_OFF = "{{site.baseurl}}/images/bulb_off.png"
+    const IMAGE_OFF = "https://rliao569.github.io/Tri2Repo/images/bulb_off.png"
 
     // return string with current value of each bit
     function getBits() {
