@@ -22,9 +22,89 @@ Jekyll Table Reference: https://idratherbewriting.com/documentation-theme-jekyll
         text-align: center;
         vertical-align: middle;
     }
+
+    body {
+        background-color: white;
+    }
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-family: 'IBM Plex Sans Hebrew', monospace;
+        color: black;
+        border: 5.5px solid transparent;
+        overflow: break-word;
+        font-size: 40px; 
+    }
+    .simple-highlight{
+        background-color:pink;
+        padding:0.1em 0.2em;
+    }
+    }
+        .a {
+            position: relative;
+            padding: 13px 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.5);
+            margin: 10px;
+            transition: 1s;
+            text-decoration: none;
+            overflow: hidden;
+            -webkit-box-reflect: below 1px linear-gradient(transparent, transparent, #0004);
+        }
+        .a:hover {
+            background: var(--clr);
+            box-shadow: 0 0 10px var(--clr), 0 0 30px var(--clr);
+        }
+        .a::before {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 420%;
+            background: var(--clr);
+            transition: 1s;
+            animation: animate 2s linear infinite;
+            animation-delay: calc(0.33s * var(--i));
+        }
+        .a:hover::before {
+            width: 1200%;
+        }
+        @keyframes animate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        .a::after {
+            content: '';
+            position: absolute;
+            inset: 4px;
+            background: #011e41;
+        }
+        .a:hover::after {
+            background: var(--clr);
+        }
+        .a span {
+            position: relative;
+            z-index: 1;
+            font-size: 2em;
+            color: #ffcf01;
+            font-family: 'IBM Plex Sans Hebrew', monospace;
+            opacity: 0.7;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            transition: 0.5s;
+        }
+        .a:hover span {
+            opacity: 1;
+        }
 </style>
 
-<table>
+<table class="container">
     <thead>
         <tr class="header" id="table">
             <th>Plus</th>
@@ -52,15 +132,15 @@ Liquid for loop includes last number, thus the Minus
 {% endcomment %}
 {% assign bits = BITS | minus: 1 %} 
 
-<table>
+<table class="container">
     <thead>
         <tr>
             {% comment %}
             Build many bits
             {% endcomment %}
             {% for i in (0..bits) %}
-            <th><img id="bulb{{ i }}" src="https://rliao569.github.io/Tri2Repo/images/bulb_off.png" alt="" width="40" height="Auto">
-                <div class="button" id="butt{{ i }}" onclick="javascript:toggleBit({{ i }})">Turn on</div>
+            <th><img id="bulb{{ i }}" src="https://rliao569.github.io/Tri2Repo/images/bulb_off.png" alt="" width="240" height="auto">
+                <div class="button" id="butt{{ i }}" onclick="javascript:toggleBit({{ i }})"><span class="simple-highlight">Turn On</span></div>
             </th>
             {% endfor %}
         </tr>
@@ -71,13 +151,16 @@ Liquid for loop includes last number, thus the Minus
             Value of bit
             {% endcomment %}
             {% for i in (0..bits) %}
-            <td><input type='text' id="digit{{ i }}" Value="0" size="1" readonly></td>
+            <td><input type='text' id="digit{{ i }}" Value="0" size="28" readonly></td>
             {% endfor %}
         </tr>
     </tbody>
 </table>
 
+
+
 <script>
+
     const BITS = {{ BITS }};
     const MAX = 2 ** BITS - 1;
     const MSG_ON = "Turn on";
