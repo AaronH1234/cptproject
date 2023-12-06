@@ -34,12 +34,11 @@ Jekyll Table Reference: https://idratherbewriting.com/documentation-theme-jekyll
         color: black;
         border: 5.5px solid transparent;
         overflow: break-word;
-        font-size: 40px; 
+        font-size: 35px; 
     }
     .simple-highlight{
         background-color:pink;
         padding:0.1em 0.2em;
-    }
     }
         .a {
             position: relative;
@@ -139,7 +138,7 @@ Liquid for loop includes last number, thus the Minus
             Build many bits
             {% endcomment %}
             {% for i in (0..bits) %}
-            <th><img id="bulb{{ i }}" src="https://rliao569.github.io/Tri2Repo/images/bulb_off.png" alt="" width="240" height="auto">
+            <th><img id="bulb{{ i }}" src="https://rliao569.github.io/Tri2Repo/images/bulb_off.png" alt="" width="100" height="auto">
                 <div class="button" id="butt{{ i }}" onclick="javascript:toggleBit({{ i }})"><span class="simple-highlight">Turn On</span></div>
             </th>
             {% endfor %}
@@ -151,7 +150,7 @@ Liquid for loop includes last number, thus the Minus
             Value of bit
             {% endcomment %}
             {% for i in (0..bits) %}
-            <td><input type='text' id="digit{{ i }}" Value="0" size="28" readonly></td>
+            <td><input type='text' id="digit{{ i }}" Value="0" size="18.8888899999" readonly></td>
             {% endfor %}
         </tr>
     </tbody>
