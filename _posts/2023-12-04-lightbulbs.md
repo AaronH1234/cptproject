@@ -35,7 +35,21 @@ Jekyll Table Reference: https://idratherbewriting.com/documentation-theme-jekyll
         border: 5.5px solid transparent;
         overflow: break-word;
         font-size: 35px; 
+        margin-top: 20px; /* Adjust the top margin as needed */
+        margin-bottom: 20px; /* Adjust the bottom margin as needed */
     }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px; /* Adjust the top margin as needed */
+        margin-bottom: 20px; /* Adjust the bottom margin as needed */
+    }
+
+    th, td {
+        padding: 10px; /* Adjust the cell padding as needed */
+    }
+
     .simple-highlight{
         background-color:pink;
         padding:0.1em 0.2em;
