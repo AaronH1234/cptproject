@@ -1,9 +1,9 @@
-title: cptproject
+title: Tri2Repo
 description: "August 2023 to June 2024"
-owner_name: Aaron Hsu
-github_username: AaronH1234
-github_repo: "cptproject"
-baseurl: "/cptproject"
+owner_name: Ryan Liao
+github_username: rliao569
+github_repo: "Tri2Repo"
+baseurl: "/Tri2Repo"
 #remote_theme: jekyll/minima
 remote_theme: thedevslot/WhatATheme
 minima:
