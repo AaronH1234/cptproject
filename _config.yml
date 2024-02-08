@@ -19,3 +19,15 @@ minima:
 plugins:
 - jekyll-remote-theme
 future: true
+
+
+# Name of the Author
+author-name: 
+- Jason G.
+
+# URL to the Author's Profile (i.e., Github, Twitter, Stackoverflow, etc)
+author-url: 
+- https://github.com/JasonGuan1012
+
+
+
