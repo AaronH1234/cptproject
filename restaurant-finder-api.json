@@ -3,13 +3,11 @@
         {
             "offers_third_party_delivery": true,
             "address": {
-                "zipcode": "J7E 2B4",
-                "country": "CA",
-                "city": "Sainte-Thérèse",
-                "latitude": 45.6428989,
-                "lon": -73.8608428,
+                "zipcode": "92111",
+                "country": "United States",
+                "city": "San Diego",
                 "street_addr_2": "",
-                "state": "QC",
+                "state": "CA",
                 "street_addr": "300 Rue Sicard",
                 "lat": 45.6428989,
                 "longitude": -73.8608428
@@ -27,15 +25,7 @@
             ],
             "pickup_enabled": true,
             "cuisines": [
-                "Chicken",
-                "Healthy",
-                "Middle Eastern",
-                "Moyen-Oriental",
-                "Salads",
-                "Sandwich",
-                "Sandwiches & Subs",
-                "Sandwichs Et Sous-Marins",
-                "Santé"
+                "Sichuan"
             ],
             "miles": 5445.844985800705,
             "delivery_enabled": true,
