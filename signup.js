@@ -8,7 +8,7 @@
            uid: uid,
            password: password
        };
-       fetch('http://127.0.0.1:8086/api/users/create', {
+       fetch('http://127.0.0.1:8888/api/users/create', {
             method: 'POST',
             mode: 'cors', // no-cors, *cors, same-origin
             credentials: 'include', // include, same-origin, omit

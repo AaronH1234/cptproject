@@ -1,5 +1,5 @@
 function login_user(){
-    const url = 'http://127.0.0.1:8086/api/users/authenticate'; // Authentication endpoint
+    const url = 'http://127.0.0.1:8888/api/users/authenticate'; // Authentication endpoint
 
     // Get user ID and password from the form
     const body = {
