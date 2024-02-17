@@ -1,17 +1,16 @@
-
 <html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <div class="form-container">
-    <h2 id="pageTitle">Login</h2>
+    <h2 id="pageTitle">Login again to submit a comment!</h2>
     <form>
         <input type="text" id="name" class="input" placeholder="Full Name"><br>
-        <input type="text" id="user" class="input" placeholder="Username"><br>
+        <input type="text" id="uid" class="input" placeholder="Username"><br>
         <input type="password" id="pass" class="input" placeholder="Password">
     </form>
-    <button class="submit" onclick="login()">Log In</button>
+    <button class="submit" onclick="login()">submit</button>
     <p id="error"></p>
     <button onclick="switchToSignup()">Switch to Signup</button>
 </div>
@@ -22,16 +21,18 @@ function switchToSignup() {
 function login() {
     data = {
         "name": document.getElementById("name").value,
-        "uid": document.getElementById("user").value,
+        "uid": document.getElementById("uid").value,
         "password": document.getElementById("pass").value,
     }
     options = {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json;charset=utf-8'
-        },
-        body: JSON.stringify(data),
-        credentials: 'include'
+            mode: 'cors', // no-cors, *cors, same-origin
+            credentials: 'include', // include, same-origin, omit
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            cache: 'no-cache',
+            body: JSON.stringify(data)
     }
     fetch('http://127.0.0.1:8888/api/users/authenticate', options)
     .then(response => {
@@ -49,7 +50,7 @@ function login() {
                 console.log('JWT Token not found');
             }
             // Redirect to the desired page after successful login
-            window.location.href = "http://localhost:4100/cptproject/c4.1/2024/02/08/tableofcontent_IPYNB_2_.html";
+            window.location.href = "http://localhost:4100/cptproject/2024/02/13/comments.html";
         }
         else {
             // Handle incorrect login information
