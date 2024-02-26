@@ -32,56 +32,77 @@
             <!-- Comments will be displayed here -->
         </tbody>
     </table>
-    
+
     <script>
-        // Function to get UID from JWT cookie and store in localStorage
-        function storeUidInLocalStorage() {
-            const cookie = document.cookie.split(';').find(cookie => cookie.trim().startsWith('jwt='));
+// Function to display comments from LocalStorage
+function displayComments() {
+    const comments = JSON.parse(localStorage.getItem('comments')) || [];
+    const commentsTable = document.getElementById('commentBody'); // Corrected ID
+    commentsTable.innerHTML = ''; // Clear existing comments
 
-            if (!cookie) {
-                return;
-            }
+    comments.forEach(comment => {
+        const row = document.createElement('tr');
+        
+        // Add UID cell
+        const uidCell = document.createElement('td');
+        uidCell.textContent = comment.uid;
+        row.appendChild(uidCell);
+        
+        // Add restaurant name cell
+        const restaurantCell = document.createElement('td');
+        restaurantCell.textContent = comment.restaurantName;
+        row.appendChild(restaurantCell);
 
-            const token = cookie.split('=')[1];
-            const tokenPayload = token.split('.')[1];
-            const decodedPayload = atob(tokenPayload);
-            const { _uid } = JSON.parse(decodedPayload);
+        // Add rating cell
+        const ratingCell = document.createElement('td');
+        ratingCell.textContent = comment.rating;
+        row.appendChild(ratingCell);
 
-            localStorage.setItem('uid', _uid);
-        }
+        // Append the row to the table body
+        commentsTable.appendChild(row);
+    });
+}
 
-        // Function to retrieve UID from localStorage
-        function getUidFromLocalStorage() {
-            return localStorage.getItem('uid');
-        }
 
-        // Call function to store UID in localStorage when page loads
-        storeUidInLocalStorage();
+// Function to submit a new comment to LocalStorage
+function submitComment(event) {
+    event.preventDefault(); // Prevent default form submission
 
-        // Function to handle comment submission
-        document.getElementById('commentForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            
-            // Get UID from localStorage
-            const uid = getUidFromLocalStorage();
-            if (!uid) {
-                alert('User not logged in!');
-                return;
-            }
-            
-            // Get restaurant name and rating from form
-            const restaurant = document.getElementById('restaurant').value.trim();
-            const rating = parseInt(document.getElementById('rating').value);
-            
-            // Append new comment to the table
-            const commentTable = document.getElementById('commentBody');
-            const newRow = commentTable.insertRow();
-            newRow.innerHTML = `<td>${uid}</td><td>${restaurant}</td><td>${rating}</td>`;
-            
-            // Clear form fields
-            document.getElementById('restaurant').value = '';
-            document.getElementById('rating').value = '';
-        });
+    // Get form data
+    const restaurantName = document.getElementById('restaurant').value; // Corrected ID
+    const rating = document.getElementById('rating').value; // Corrected ID
+
+    // Create new comment object with UID
+    const newComment = {
+        uid: localStorage.getItem('uid'), // Get UID from localStorage
+        restaurantName,
+        rating
+    };
+
+    // Retrieve existing comments from LocalStorage or initialize an empty array
+    const comments = JSON.parse(localStorage.getItem('comments')) || [];
+
+    // Add the new comment to the array
+    comments.push(newComment);
+
+    // Save the updated comments array back to LocalStorage
+    localStorage.setItem('comments', JSON.stringify(comments));
+
+    // Refresh the displayed comments
+    displayComments();
+
+    // Reset the form
+    document.getElementById('commentForm').reset();
+}
+
+
+        // Fetch comments when the page loads
+        window.onload = function() {
+            displayComments();
+            // Attach event listener to the comment form
+            document.getElementById('commentForm').addEventListener('submit', submitComment);
+        };
     </script>
+   
 </body>
 </html>

@@ -35,7 +35,7 @@
                 alert('Please store the UID first!');
                 return;
             }
-            
+            // copy n pasted this part from login page. This prevents fraudulent behavior.
             data = {
                 "name": document.getElementById("name").value,
                 "uid": document.getElementById("user").value,
@@ -65,7 +65,7 @@
                         console.log('JWT Token not found');
                     }
 
-                    // THEN THE REDIRECT HAPPENS. PLEASE WORK. IF THIS DOSENT WORK i am going to pull a kenneth wang 11 22 "im gonna kill myself"
+                    // THEN THE REDIRECT HAPPENS. PLEASE WORK. IF THIS DOSENT WORK i am going to pull a kenneth wang 11 22 
                     window.location.href = "http://localhost:4100/cptproject/2024/02/13/comments.html";
                 }
             })
