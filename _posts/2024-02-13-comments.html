@@ -124,79 +124,59 @@ tags:
             </tr>
         </thead>
         <tbody id="commentBody">
-            <!-- Comments will be displayed here -->
+            
         </tbody>
     </table>
 
     <script>
-// Function to display comments from LocalStorage
 function displayComments() {
     const comments = JSON.parse(localStorage.getItem('comments')) || [];
-    const commentsTable = document.getElementById('commentBody'); // Corrected ID
-    commentsTable.innerHTML = ''; // Clear existing comments
+    const commentsTable = document.getElementById('commentBody'); 
+    commentsTable.innerHTML = ''; 
 
     comments.forEach(comment => {
         const row = document.createElement('tr');
         
-        // Add UID cell
         const uidCell = document.createElement('td');
         uidCell.textContent = comment.uid;
         row.appendChild(uidCell);
         
-        // Add restaurant name cell
         const restaurantCell = document.createElement('td');
         restaurantCell.textContent = comment.restaurantName;
         row.appendChild(restaurantCell);
 
-        // Add rating cell
         const ratingCell = document.createElement('td');
         ratingCell.textContent = comment.rating;
         row.appendChild(ratingCell);
 
-        // Append the row to the table body
         commentsTable.appendChild(row);
     });
 }
 
-
-// Function to submit a new comment to LocalStorage
 function submitComment(event) {
-    event.preventDefault(); // Prevent default form submission
+    event.preventDefault(); 
 
-    // Get form data
-    const restaurantName = document.getElementById('restaurant').value; // Corrected ID
-    const rating = document.getElementById('rating').value; // Corrected ID
+    const restaurantName = document.getElementById('restaurant').value; 
+    const rating = document.getElementById('rating').value; 
 
-    // Create new comment object with UID
     const newComment = {
-        uid: localStorage.getItem('uid'), // Get UID from localStorage
+        uid: localStorage.getItem('uid'),
         restaurantName,
         rating
     };
 
-    // Retrieve existing comments from LocalStorage or initialize an empty array
     const comments = JSON.parse(localStorage.getItem('comments')) || [];
-
-    // Add the new comment to the array
     comments.push(newComment);
-
-    // Save the updated comments array back to LocalStorage
     localStorage.setItem('comments', JSON.stringify(comments));
 
-    // Refresh the displayed comments
     displayComments();
-
-    // Reset the form
     document.getElementById('commentForm').reset();
 }
 
-
-        // Fetch comments when the page loads
-        window.onload = function() {
-            displayComments();
-            // Attach event listener to the comment form
-            document.getElementById('commentForm').addEventListener('submit', submitComment);
-        };
+window.onload = function() {
+    displayComments();
+    document.getElementById('commentForm').addEventListener('submit', submitComment);
+};
     </script>
    
 </body>
