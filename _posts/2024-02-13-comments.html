@@ -105,11 +105,15 @@ tags:
     
     <h2>Submit personal reviews on restaruants here. Keep track of what restaurants you like!</h2>
     <form id="commentForm">
+        <label for="uid">UID:</label>
+        <input type="text" id="uid" name="uid" required><br><br>
+
         <label for="restaurant">Restaurant:</label>
         <input type="text" id="restaurant" name="restaurant" required><br><br>
         
         <label for="rating">Rating (1-10):</label>
         <input type="number" id="rating" name="rating" min="1" max="10" required><br><br>
+
 
         <button type="submit">Submit Comment</button>
     </form>
@@ -129,6 +133,133 @@ tags:
     </table>
 
     <script>
+        function submitComment(event) {
+            event.preventDefault(); // Prevent form submission
+        
+            // Retrieve values from form inputs
+            const uid = document.getElementById('uid').value;
+            const restaurantName = document.getElementById('restaurant').value;
+            const rating = document.getElementById('rating').value;
+        
+            // Construct the comment object
+            const newComment = {
+                uid: uid,
+                restaurant: restaurantName,
+                rating: rating
+            };
+        
+            // Send a POST request to the backend API
+            fetch('http://127.0.0.1:8888/api/comments/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(newComment) // Convert comment object to JSON string
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Refresh comments after successful submission
+                    displayComments();
+                    document.getElementById('commentForm').reset(); // Clear form inputs
+                } else {
+                    throw new Error('Failed to submit comment');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Failed to submit comment. Please try again.');
+            });
+        }
+        
+        function getComments() {
+            fetch('http://127.0.0.1:8888/api/comments/')
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                }
+                throw new Error('Failed to fetch comments');
+            })
+            .then(comments => {
+                console.log(comments)
+                const commentsTable = document.getElementById('commentBody');
+                commentsTable.innerHTML = '';
+        
+                comments.forEach(comment => {
+                    const row = document.createElement('tr');
+        
+                    const uidCell = document.createElement('td');
+                    uidCell.textContent = comment.uid;
+                    row.appendChild(uidCell);
+        
+                    const restaurantCell = document.createElement('td');
+                    restaurantCell.textContent = comment.restaurantName;
+                    row.appendChild(restaurantCell);
+        
+                    const ratingCell = document.createElement('td');
+                    ratingCell.textContent = comment.rating;
+                    row.appendChild(ratingCell);
+        
+                    commentsTable.appendChild(row);
+                });
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Failed to fetch comments. Please try again.');
+            });
+        }
+                // Function to display comments
+        function displayComments() {
+            fetch('http://127.0.0.1:8888/api/comments/')
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                }
+                throw new Error('Failed to fetch comments');
+            })
+            .then(comments => {
+                const commentsTable = document.getElementById('commentBody');
+                commentsTable.innerHTML = ''; // Clear existing table content
+
+                comments.forEach(comment => {
+                    const row = document.createElement('tr');
+
+                    const uidCell = document.createElement('td');
+                    uidCell.textContent = comment.UID; // Use "UID" key from the received JSON
+                    row.appendChild(uidCell);
+
+                    const restaurantCell = document.createElement('td');
+                    restaurantCell.textContent = comment.Restaurant; // Use "Restaurant" key from the received JSON
+                    row.appendChild(restaurantCell);
+
+                    const ratingCell = document.createElement('td');
+                    ratingCell.textContent = comment.Rating; // Use "Rating" key from the received JSON
+                    row.appendChild(ratingCell);
+
+                    commentsTable.appendChild(row);
+                });
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Failed to fetch comments. Please try again.');
+            });
+        }
+
+        // Add event listener to the submit button
+        window.onload = function() {
+            displayComments(); // Display existing comments when the page loads
+            
+            const submitButton = document.querySelector('button[type="submit"]');
+            submitButton.addEventListener('click', submitComment);
+        };
+
+
+
+    </script>
+   
+</body>
+</html>
+
+<!--                 
 function displayComments() {
     const comments = JSON.parse(localStorage.getItem('comments')) || [];
     const commentsTable = document.getElementById('commentBody'); 
@@ -176,8 +307,4 @@ function submitComment(event) {
 window.onload = function() {
     displayComments();
     document.getElementById('commentForm').addEventListener('submit', submitComment);
-};
-    </script>
-   
-</body>
-</html>
+}; -->
