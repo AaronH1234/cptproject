@@ -159,6 +159,7 @@ tags:
             .then(response => {
                 if (response.ok) {
                     // Refresh comments after successful submission
+                    alert("Comment Successful!")
                     displayComments();
                     document.getElementById('commentForm').reset(); // Clear form inputs
                 } else {
