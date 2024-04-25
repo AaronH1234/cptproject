@@ -1,6 +1,6 @@
 ---
 comments: true
-title: Signup Page test
+title: Sign-Up Page 
 post-image: https://i.ibb.co/5LjNJsd/Sign-Up-COVER.png
 description: Here's where you sign up for Food Finder
 permalink: signuptest
