@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the Number</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #444;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .heart {
+            color: red;
+            font-size: 50px; /* Adjust the font size as needed */
+        }
+
+
+        .container {
+            background-color: #bbb;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            margin-top: 0;
+        }
+
+        input[type="number"] {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 60px;
+            margin-right: 10px;
+        }
+
+        .btn-container {
+            margin-top: 20px;
+        }
+
+        /* The button styles */
+        .ui-btn {
+            --btn-default-bg: #007bff;
+            --btn-padding: 15px 20px;
+            --btn-hover-bg: #0056b3;
+            --btn-transition: .3s;
+            --btn-letter-spacing: .1rem;
+            --btn-animation-duration: 1.2s;
+            --btn-shadow-color: rgba(0, 0, 0, 0.137);
+            --btn-shadow: 0 2px 10px 0 var(--btn-shadow-color);
+            --hover-btn-color: #FAC921;
+            --default-btn-color: #fff;
+            --font-size: 16px;
+            --font-weight: 600;
+            --font-family: Arial, sans-serif;
+            box-sizing: border-box;
+            padding: var(--btn-padding);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--default-btn-color);
+            font: var(--font-weight) var(--font-size) var(--font-family);
+            background: var(--btn-default-bg);
+            border: none;
+            cursor: pointer;
+            transition: var(--btn-transition);
+            overflow: hidden;
+            box-shadow: var(--btn-shadow);
+        }
+
+        .ui-btn span {
+            letter-spacing: var(--btn-letter-spacing);
+            transition: var(--btn-transition);
+            box-sizing: border-box;
+            position: relative;
+            background: inherit;
+        }
+
+        .ui-btn span::before {
+            box-sizing: border-box;
+            position: absolute;
+            content: "";
+            background: inherit;
+        }
+
+        .ui-btn:hover, .ui-btn:focus {
+            background: var(--btn-hover-bg);
+        }
+
+        .ui-btn:hover span, .ui-btn:focus span {
+            color: var(--hover-btn-color);
+        }
+
+        .ui-btn:hover span::before, .ui-btn:focus span::before {
+            animation: chitchat linear both var(--btn-animation-duration);
+        }
+
+        @keyframes chitchat {
+            0% {
+                content: "#";
+            }
+
+            5% {
+                content: ".";
+            }
+
+            10% {
+                content: "^{";
+            }
+
+            15% {
+                content: "-!";
+            }
+
+            20% {
+                content: "#$_";
+            }
+
+            25% {
+                content: "№:0";
+            }
+
+            30% {
+                content: "#{+.";
+            }
+
+            35% {
+                content: "@}-?";
+            }
+
+            40% {
+                content: "?{4@%";
+            }
+
+            45% {
+                content: "=.,^!";
+            }
+
+            50% {
+                content: "?2@%";
+            }
+
+            55% {
+                content: "\;1}]";
+            }
+
+            60% {
+                content: "?{%:%";
+                right: 0;
+            }
+
+            65% {
+                content: "|{f[4";
+                right: 0;
+            }
+
+            70% {
+                content: "{4%0%";
+                right: 0;
+            }
+
+            75% {
+                content: "'1_0<";
+                right: 0;
+            }
+
+            80% {
+                content: "{0%";
+                right: 0;
+            }
+
+            85% {
+                content: "]>'";
+                right: 0;
+            }
+
+            90% {
+                content: "4";
+                right: 0;
+            }
+
+            95% {
+                content: "2";
+                right: 0;
+            }
+
+            100% {
+                content: "";
+                right: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Guess the Number Game</h1>
+        <p>I'm thinking of a number between 1 and 100. Can you guess it?</p>
+        <br>
+        <div class="input-container">
+            <input type="number" id="guess-input" min="1" max="100">
+            <br><br>
+            <button class="ui-btn" onclick="checkGuess()">
+                <span>
+                    Button
+                </span>
+            </button>
+        </div>
+        <p id="result"></p>
+        <p id="hearts"></p>
+    </div>
+
+    <script>
+        var remainingTries = 9;
+
+        function generateSecretNumber() {
+            return Math.floor(Math.random() * 100) + 1;
+        }
+
+        function checkGuess() {
+            var secretNumber = parseInt(localStorage.getItem('secretNumber'));
+            var guess = parseInt(document.getElementById('guess-input').value);
+
+            if (isNaN(guess) || guess < 1 || guess > 100) {
+                document.getElementById('result').textContent = 'Please enter a valid number between 1 and 100.';
+            } else if (guess < secretNumber) {
+                document.getElementById('result').textContent = 'Too low! Try again.';
+                updateTries();
+            } else if (guess > secretNumber) {
+                document.getElementById('result').textContent = 'Too high! Try again.';
+                updateTries();
+            } else {
+                document.getElementById('result').textContent = 'Congratulations! You guessed the number!';
+                localStorage.setItem('secretNumber', generateSecretNumber());
+            }
+        }
+
+        function updateTries() {
+            remainingTries--;
+            displayHearts();
+            if (remainingTries === 0) {
+                document.getElementById('result').textContent = 'Sorry, you\'ve run out of attempts. The number was ' + localStorage.getItem('secretNumber') + '.';
+                document.getElementById('guess-input').disabled = true;
+            }
+        }
+
+        function displayHearts() {
+            var hearts = '';
+            for (var i = 0; i < remainingTries; i++) {
+                hearts += '<span class="heart">&hearts;</span>';
+            }
+            document.getElementById('hearts').innerHTML = hearts;
+        }
+
+        window.onload = function() {
+            localStorage.setItem('secretNumber', generateSecretNumber());
+            displayHearts();
+        };
+
+        // Add event listener to input field to listen for "Enter" key press
+        document.getElementById("guess-input").addEventListener("keydown", function(event) {
+            if (event.key === "Enter") {
+                // Trigger a click on the button
+                document.querySelector(".ui-btn").click();
+            }
+        });
+    </script>
+</body>
+</html>
