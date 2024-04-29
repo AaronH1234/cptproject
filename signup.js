@@ -21,7 +21,7 @@
        .then(response => response.json())
        .then(data => {
            console.log('Sign Up successful:', data);
-           window.location.href = "http://localhost:4100/cptproject/2024/02/11/loginpagetest.html";
+           window.location.href = "http://localhost:4100/cptproject/2024/02/11/Login-Page.html";
        })
        .catch(error => {
            console.error('Error:', error);
